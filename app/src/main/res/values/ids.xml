@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fab_about" type="id" />
+    <item name="fab_share" type="id" />
+    <item name="fab_rate" type="id" />
+</resources>
