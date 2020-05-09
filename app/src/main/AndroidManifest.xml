@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="abdullah.alialdin.alphapetforkids">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="abdullah.alialdin.alphapetforkids"
+    android:versionCode="1"
+    android:versionName="1.0"
+    android:installLocation="auto"
+    tools:ignore="GradleOverrides">
 
     <application
         android:allowBackup="true"
@@ -12,7 +17,7 @@
         android:fullBackupContent="@xml/my_backup_rules">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="appIdHere"/>
+            android:value="@string/app_id"/>
         <activity
             android:name=".ui.MainActivity"
             android:theme="@style/AppTheme.Launcher"

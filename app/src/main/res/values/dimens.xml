@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="default_weight">1</dimen>
+    <dimen name="arrows_layout_weight">2</dimen>
+    <dimen name="arrow_margin">12dp</dimen>
+    <dimen name="card_image_padding">16dp</dimen>
+    <dimen name="card_corner_rad">24dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="category_text_padding">6dp</dimen>
+    <dimen name="category_text_size">28sp</dimen>
+    <dimen name="category_image_width">150dp</dimen>
+    <dimen name="category_image_height">100dp</dimen>
+</resources>

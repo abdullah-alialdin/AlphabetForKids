@@ -14,4 +14,12 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#FF5722</color>
+    <color name="alphabet_cat_color">#06d78e</color>
+    <color name="number_cat_color">#ff5a68</color>
+    <color name="animals_cat_color">#7a71cd</color>
+    <color name="food_cat_color">#ffaf33</color>
+    <color name="sports_cat_color">#8b8b7a</color>
+    <color name="transports_cat_color">#00bfff</color>
+    <color name="objects_cat_color">#c3e949</color>
+    <color name="ic_launcher_back_color">#BFFD00</color>
 </resources>

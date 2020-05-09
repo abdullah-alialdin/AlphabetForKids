@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -10,16 +9,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/backgroung">
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero_dp"
         android:layout_weight="5"
         android:onClick="flipCard"
         tools:ignore="Suspicious0dp">
@@ -28,6 +27,7 @@
             android:id="@+id/card_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <include layout="@layout/card_back" />
 
 
@@ -38,41 +38,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
+
             <include layout="@layout/card_front" />
 
         </FrameLayout>
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        tools:ignore="Suspicious0dp">
+        android:layout_height="@dimen/zero_dp"
+        android:layout_weight="@dimen/arrows_layout_weight"
+        android:orientation="horizontal">
+
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_button"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="12dp"
-            tools:ignore="NestedWeights"
-            android:id="@+id/backward_button"/>
+            android:id="@+id/backward_button"
+            style="@style/arrow_styles"
+            android:contentDescription="@string/back_arrow_des"
+            android:src="@drawable/back_button" />
+
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:src="@drawable/next_bottun"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="12dp"
-            android:id="@+id/forward_button"/>
+            android:id="@+id/forward_button"
+            style="@style/arrow_styles"
+            android:contentDescription="@string/next_arrow_des"
+            android:src="@drawable/next_bottun" />
 
     </LinearLayout>
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/footer_adView"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        ads:adUnitId="@string/footer_ad_id" />
 
 </LinearLayout>

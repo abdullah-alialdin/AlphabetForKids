@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class DataModel {
 
     private int imageReference;
-    private String title;
     private int sound;
+    private String title;
     private String color;
     private ArrayList<CategoryModel> category;
 

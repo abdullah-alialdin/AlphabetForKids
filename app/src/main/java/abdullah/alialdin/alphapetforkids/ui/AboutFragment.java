@@ -70,8 +70,8 @@ public class AboutFragment extends Fragment implements View.OnClickListener{
             case R.id.gmail:
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, "abdullah.alialdin@gmail.com");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Alphabet for Kids FeedBack");
+                intent.putExtra(Intent.EXTRA_EMAIL, getString(R.string.email));
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
                 if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
                     startActivity(intent);
                 }
@@ -81,13 +81,13 @@ public class AboutFragment extends Fragment implements View.OnClickListener{
                 startActivity(face);
                 break;
             case R.id.twitter:
-                followMeOn("https://twitter.com/abdoroid");
+                followMeOn(getString(R.string.twitter));
                 break;
             case R.id.youtube:
-                followMeOn("http://www.youtube.com/c/Abdoroid");
+                followMeOn(getString(R.string.youtube));
                 break;
             case R.id.linkedin:
-                followMeOn("https://www.linkedin.com/in/abdullah-alialdin/");
+                followMeOn(getString(R.string.linkedin));
                 break;
         }
     }
@@ -106,9 +106,9 @@ public class AboutFragment extends Fragment implements View.OnClickListener{
            context.getPackageManager()
                    .getPackageInfo("com.facebook.katana", 0);
            return new Intent(Intent.ACTION_VIEW,Uri.parse("fb://facewebmodal/f?href="
-                   + "https://www.facebook.com/abdoroid.channel"));
+                   + context.getString(R.string.facebook)));
         } catch (Exception e) {
-            return new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/abdoroid.channel"));
+            return new Intent(Intent.ACTION_VIEW,Uri.parse(context.getString(R.string.facebook)));
         }
     }
 }

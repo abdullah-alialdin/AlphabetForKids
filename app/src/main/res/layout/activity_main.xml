@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -11,40 +10,39 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#000000">
+        android:layout_weight="@dimen/default_weight"
+        android:background="@android:color/black">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <com.leinardi.android.speeddial.SpeedDialView
-        android:id="@+id/speedDial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        app:sdMainFabClosedSrc="@drawable/ic_menu"
-        app:sdMainFabOpenedSrc="@drawable/ic_close_black_24dp"
-        app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior" />
+        <com.leinardi.android.speeddial.SpeedDialView
+            android:id="@+id/speedDial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
+            app:sdMainFabClosedSrc="@drawable/ic_menu"
+            app:sdMainFabOpenedSrc="@drawable/ic_close_black_24dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/footer_adView"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        ads:adUnitId="@string/footer_ad_id" />
 </LinearLayout>

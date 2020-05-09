@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public static RecyclerView mRecyclerView;
     public static SpeedDialView speedDialView;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -75,13 +77,20 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<CategoryModel> mSportsList = DataArrays.makeSportsList();
         ArrayList<CategoryModel> mTransportsList = DataArrays.makeTransportsList();
         ArrayList<CategoryModel> mObjectsList = DataArrays.makeObjectsList();
-        list.add(new DataModel(R.drawable.alphabet,"Alphabet",R.raw.alphabet,"#06d78e", mAlphabetList));
-        list.add(new DataModel(R.drawable.numbers,"Numbers",R.raw.numbers,"#ff5a68", mNumbersList));
-        list.add(new DataModel(R.drawable.animals,"Animals",R.raw.animals,"#7a71cd", mAnimalsList));
-        list.add(new DataModel(R.drawable.food,"Food",R.raw.food,"#ffaf33", mFoodList));
-        list.add(new DataModel(R.drawable.sports,"Sports",R.raw.sports,"#8b8b7a", mSportsList));
-        list.add(new DataModel(R.drawable.transports,"Transports",R.raw.transports,"#00bfff", mTransportsList));
-        list.add(new DataModel(R.drawable.objects,"Objects",R.raw.objects,"#c3e949", mObjectsList));
+        list.add(new DataModel(R.drawable.alphabet,getString(R.string.cat_alphabet), R.raw.alphabet,
+                getString(R.color.alphabet_cat_color), mAlphabetList));
+        list.add(new DataModel(R.drawable.numbers, getString(R.string.cat_numbers), R.raw.numbers,
+                getString(R.color.number_cat_color), mNumbersList));
+        list.add(new DataModel(R.drawable.animals, getString(R.string.cat_animals), R.raw.animals,
+                getString(R.color.animals_cat_color), mAnimalsList));
+        list.add(new DataModel(R.drawable.food, getString(R.string.cat_food), R.raw.food,
+                getString(R.color.food_cat_color), mFoodList));
+        list.add(new DataModel(R.drawable.sports, getString(R.string.cat_sports), R.raw.sports,
+                getString(R.color.sports_cat_color), mSportsList));
+        list.add(new DataModel(R.drawable.transports, getString(R.string.cat_transports), R.raw.transports,
+                getString(R.color.transports_cat_color), mTransportsList));
+        list.add(new DataModel(R.drawable.objects,getString(R.string.cat_objects), R.raw.objects,
+                getString(R.color.objects_cat_color), mObjectsList));
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -109,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.fab_rate:
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(
-                                "https://play.google.com/store/apps/details?id=abdullah.alialdin.alphapetforkids"));
+                                getString(R.string.google_play_url)));
                         intent.setPackage("com.android.vending");
                         startActivity(intent);
                         return false; // true to keep the Speed Dial open
@@ -117,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_TEXT,
-                                "برنامج ممتع جدا لتعليم الأطفال الحروف الانجليزية وبعض الكلمات البسيطة " +
-                                        " https://play.google.com/store/apps/details?id=abdullah.alialdin.alphapetforkids");
+                                getString(R.string.share_message) +
+                                        getString(R.string.google_play_url));
                         sendIntent.setType("text/plain");
                         Intent shareIntent = Intent.createChooser(sendIntent, null);
                         startActivity(shareIntent);

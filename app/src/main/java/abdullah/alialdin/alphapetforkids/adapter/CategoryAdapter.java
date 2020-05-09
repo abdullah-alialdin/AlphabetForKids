@@ -63,7 +63,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.viewH
         holder.image.setImageResource(data.getImageReference());
         holder.cardView.setCardBackgroundColor(Color.parseColor(data.getColor()));
         final InterstitialAd mInterstitialAd = new InterstitialAd(mContext);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId(mContext.getString(R.string.interstitial_id));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
