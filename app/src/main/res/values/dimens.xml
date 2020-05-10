@@ -11,4 +11,6 @@
     <dimen name="category_text_size">28sp</dimen>
     <dimen name="category_image_width">150dp</dimen>
     <dimen name="category_image_height">100dp</dimen>
+    <dimen name="license_padding">8dp</dimen>
+    <dimen name="license_margin">40dp</dimen>
 </resources>

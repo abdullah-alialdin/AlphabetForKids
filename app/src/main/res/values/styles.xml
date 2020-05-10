@@ -48,4 +48,21 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="follow_image_button">
+        <item name="android:layout_width">@dimen/zero_dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="license_text_view_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:padding">@dimen/license_padding</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginEnd">@dimen/license_margin</item>
+        <item name="android:layout_marginRight">@dimen/license_margin</item>
+    </style>
 </resources>

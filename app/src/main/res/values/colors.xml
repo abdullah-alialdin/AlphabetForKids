@@ -22,4 +22,5 @@
     <color name="transports_cat_color">#00bfff</color>
     <color name="objects_cat_color">#c3e949</color>
     <color name="ic_launcher_back_color">#BFFD00</color>
+    <color name="cancel_button">#EF1233</color>
 </resources>
