@@ -17,8 +17,8 @@
         https://www.naturalreaders.com/commercial<br>
         <b>all rights reserved to the developers © 2020</b>
         <h2>Privacy Policy:</h2> <h3>May 2020</h3>
-        <h3>What information do the app collect?</h3>
-        we collect none of your information nor do we share any of your information with 3rd parties.
+        <h3>What information does the app collect?</h3>
+        We collect none of your information nor do we share any of your information with 3rd parties.
         <h3>Why do we required permissions?</h3>
         The app needs no permissions, only internet permission required from google AdMob to display ads.
         <h2>Feedback:</h2>
