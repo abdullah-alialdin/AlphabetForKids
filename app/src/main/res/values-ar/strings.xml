@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الأبجدية للأطفال</string>
+    <string name="about_text">الأبجدية للأطفال الاصدار الثاني\n\n
+        جميع الحقوق محفوظة © 2020 عبدوريود (عبدالله علي الدين)
+        مرخص بموجب ترخيص اباتشي، الإصدار 2.0 ("الترخيص") ؛ \n
+        لا يمكنك استخدام هذا الملف إلا بما يتوافق مع الترخيص. \n
+        يمكنك الحصول على نسخة من الترخيص من \n
+        http://www.apache.org/licenses/LICENSE-2.0 \n
+        ما لم يتطلب القانون المعمول به أو المتفق عليه كتابةً ، البرامج
+        يتم توزيعها بموجب الترخيص على أساس (كما هي) ،
+        بدون ضمانات أو شروط من أي نوع ، سواء كانت صريحة أو ضمنية. \n
+        راجع الترخيص باللغة المحددة التي تحكم أذونات و
+        قيود الترخيص. \n\n
+        جميع الصور من تصميم موقع فري بيك وعدلها المطور \n
+        https://www.freepik.com \n
+        وجميع الأصوات تم إنشاؤها بواسطة موقع ناتشورال ريدرز النسخة التجارية. \n
+        https://www.naturalreaders.com/commercial \n
+        وجميع الحقوق محفوظة للمطورين © 2020 \n\n
+        بنود الخصوصية: \n\n
+        التاريخ: مايو 2020 \n\n
+        ما المعلومات التي يجمعها التطبيق؟ \n
+        نحن لا نجمع أيًا من معلوماتك ولا نشارك أيًا من معلوماتك مع أطراف ثالثة.
+        \n\n
+        لماذا نطلب تلك الإذونات؟ \n
+        لا يحتاج التطبيق إلى أذونات ، فقط إذن الوصول الى الإنترنت مطلوب من جوجل للاعلانات لعرض الإعلانات. \n\n
+
+        للمتابعة والملاحظات:
+    </string>
+    <string name="email_subject">تقييم تطبيق الحروف للاطفال</string>
+    <string name="share_message">\"برنامج ممتع جدا لتعليم الأطفال الحروف الانجليزية وبعض الكلمات البسيطة \"</string>
+    <string name="back_arrow_des">للخلف</string>
+    <string name="next_arrow_des">للأمام</string>
+    <string name="content_image_des">الصورة</string>
+    <string name="text_image_des">الاسم</string>
+    <string name="category_image">صورة المجموعة</string>
+    <string name="cat_alphabet">الحروف</string>
+    <string name="cat_numbers">الأرقام</string>
+    <string name="cat_animals">الحيوانات</string>
+    <string name="cat_food">الطعام</string>
+    <string name="cat_sports">الرياضة</string>
+    <string name="cat_transports">المواصلات</string>
+    <string name="cat_objects">أشياء</string>
+    <string name="gmail_icon">البريد</string>
+    <string name="twitter_icon">تويتر</string>
+    <string name="youtube_icon">يوتيوب</string>
+    <string name="linkedin_icon">لنكيد ان</string>
+    <string name="rewarded_add_failed">فشل في تحميل الاعلان، حاول مرة اخرى</string>
+    <string name="thanks_for_support">شكرا لدعمك بمشاهدة الاعلان</string>
+    <string name="flash_cards">البطاقات التعليمية</string>
+    <string name="flash_cards_hint">اضغط على الكارت لترى الصورة</string>
+    <string name="tracing">رسم الحروف</string>
+    <string name="tracing_hint">استخدم اصبعك لرسم الحروف</string>
+    <string name="color_red_description">احمر</string>
+    <string name="color_blue_description">ازرق</string>
+    <string name="color_green_description">اخضر</string>
+    <string name="color_purple_description">بنفسجي</string>
+    <string name="color_brown_description">بني</string>
+    <string name="color_pink_description">بينك</string>
+    <string name="speaker_description">سماع الصوت</string>
+    <string name="share">مشاركة</string>
+    <string name="rate">تقييم</string>
+    <string name="support">ادعم</string>
+    <string name="about">حول</string>
+</resources>

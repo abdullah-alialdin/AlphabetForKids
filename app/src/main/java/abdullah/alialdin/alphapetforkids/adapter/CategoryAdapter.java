@@ -62,8 +62,6 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.viewH
         holder.title.setText(data.getTitle());
         holder.image.setImageResource(data.getImageReference());
         holder.cardView.setCardBackgroundColor(Color.parseColor(data.getColor()));
-        final InterstitialAd mInterstitialAd = new InterstitialAd(mContext);
-        mInterstitialAd.setAdUnitId(mContext.getString(R.string.interstitial_id));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +71,6 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.viewH
                 mContext.startActivity(intent);
                 mMediaPlayer = MediaPlayer.create(mContext, data.getSound());
                 mMediaPlayer.start();
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                }
             }
         });
     }

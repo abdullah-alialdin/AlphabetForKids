@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dp"
+        android:background="@android:color/black"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/red"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_red"
+            android:contentDescription="@string/color_red_description" />
+        <ImageButton
+            android:id="@+id/blue"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_blue"
+            android:contentDescription="@string/color_blue_description" />
+        <ImageButton
+            android:id="@+id/green"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_green"
+            android:contentDescription="@string/color_green_description" />
+        <ImageButton
+            android:id="@+id/purple"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_purple"
+            android:contentDescription="@string/color_purple_description" />
+        <ImageButton
+            android:id="@+id/brown"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_brown"
+            android:contentDescription="@string/color_brown_description" />
+        <ImageButton
+            android:id="@+id/pink"
+            style="@style/color_circle"
+            android:padding="12dp"
+            android:src="@drawable/circle_pink"
+            android:contentDescription="@string/color_pink_description" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layoutDirection="ltr"
+        android:layout_weight="1"
+        tools:targetApi="jelly_bean_mr1">
+        <RelativeLayout
+            android:id="@+id/mTile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical" >
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/speaker"
+            android:layout_width="@dimen/speaker_width_height_tab"
+            android:layout_height="@dimen/speaker_width_height_tab"
+            android:layout_marginStart="@dimen/speaker_padding"
+            android:layout_marginLeft="@dimen/speaker_padding"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/speaker_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/speaker_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mTile"
+            app:layout_constraintVertical_bias="0.65" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/divided_view_width"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        tools:targetApi="jelly_bean_mr1">
+        <ImageButton
+            android:id="@+id/back"
+            style="@style/arrow_styles"
+            android:layout_height="@dimen/arrow_height_tab"
+            android:contentDescription="@string/back_arrow_des"
+            android:src="@drawable/back_button"/>
+        <ImageButton
+            android:id="@+id/next"
+            style="@style/arrow_styles"
+            android:layout_height="@dimen/arrow_height_tab"
+            android:contentDescription="@string/next_arrow_des"
+            android:src="@drawable/next_button" />
+    </LinearLayout>
+</LinearLayout>

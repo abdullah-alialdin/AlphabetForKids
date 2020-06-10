@@ -13,116 +13,66 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package abdullah.alialdin.alphapetforkids.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.leinardi.android.speeddial.SpeedDialActionItem;
-import com.leinardi.android.speeddial.SpeedDialView;
-
-import java.util.ArrayList;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import abdullah.alialdin.alphapetforkids.R;
-import abdullah.alialdin.alphapetforkids.adapter.CategoryAdapter;
-import abdullah.alialdin.alphapetforkids.data.DataArrays;
-import abdullah.alialdin.alphapetforkids.model.CategoryModel;
-import abdullah.alialdin.alphapetforkids.model.DataModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RewardedVideoAdListener {
 
-    private ArrayList<DataModel> list = new ArrayList<>();
-    public static RecyclerView mRecyclerView;
-    public static SpeedDialView speedDialView;
+    CardView flashCards, tracing;
+    private InterstitialAd mInterstitialAd;
+    private RewardedVideoAd mRewardedVideoAd;
 
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+
+        flashCards = findViewById(R.id.flash_cards);
+        flashCards.setOnClickListener(this);
+        tracing = findViewById(R.id.tracing);
+        tracing.setOnClickListener(this);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            public void onAdClosed() {
+                AdRequest adRequest = new AdRequest.Builder().build();
+                mInterstitialAd.loadAd(adRequest);
             }
         });
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+        loadRewardedVideoAd();
 
-        AdView mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        ArrayList<CategoryModel> mAlphabetList = DataArrays.makeAlphabetList();
-        ArrayList<CategoryModel> mAnimalsList = DataArrays.makeAnimalsList();
-        ArrayList<CategoryModel> mNumbersList = DataArrays.makeNumbersList();
-        ArrayList<CategoryModel> mFoodList = DataArrays.makeFoodList();
-        ArrayList<CategoryModel> mSportsList = DataArrays.makeSportsList();
-        ArrayList<CategoryModel> mTransportsList = DataArrays.makeTransportsList();
-        ArrayList<CategoryModel> mObjectsList = DataArrays.makeObjectsList();
-        list.add(new DataModel(R.drawable.alphabet,getString(R.string.cat_alphabet), R.raw.alphabet,
-                getString(R.color.alphabet_cat_color), mAlphabetList));
-        list.add(new DataModel(R.drawable.numbers, getString(R.string.cat_numbers), R.raw.numbers,
-                getString(R.color.number_cat_color), mNumbersList));
-        list.add(new DataModel(R.drawable.animals, getString(R.string.cat_animals), R.raw.animals,
-                getString(R.color.animals_cat_color), mAnimalsList));
-        list.add(new DataModel(R.drawable.food, getString(R.string.cat_food), R.raw.food,
-                getString(R.color.food_cat_color), mFoodList));
-        list.add(new DataModel(R.drawable.sports, getString(R.string.cat_sports), R.raw.sports,
-                getString(R.color.sports_cat_color), mSportsList));
-        list.add(new DataModel(R.drawable.transports, getString(R.string.cat_transports), R.raw.transports,
-                getString(R.color.transports_cat_color), mTransportsList));
-        list.add(new DataModel(R.drawable.objects,getString(R.string.cat_objects), R.raw.objects,
-                getString(R.color.objects_cat_color), mObjectsList));
-
-        mRecyclerView = findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        CategoryAdapter adapter = new CategoryAdapter(this, list);
-        mRecyclerView.setAdapter(adapter);
-
-        final Fragment mFragment = new AboutFragment();
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-        speedDialView = findViewById(R.id.speedDial);
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_about,R.drawable.ic_menu_about)
-                        .create());
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_share,R.drawable.ic_menu_share)
-                        .create());
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_rate,R.drawable.ic_menu_rate)
-                        .create());
-
-        speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onActionSelected(SpeedDialActionItem speedDialActionItem) {
-                switch (speedDialActionItem.getId()) {
-                    case R.id.fab_rate:
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse(
-                                getString(R.string.google_play_url)));
-                        intent.setPackage("com.android.vending");
-                        startActivity(intent);
-                        return false; // true to keep the Speed Dial open
-                    case R.id.fab_share:
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_share:
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_TEXT,
@@ -130,20 +80,100 @@ public class MainActivity extends AppCompatActivity {
                                         getString(R.string.google_play_url));
                         sendIntent.setType("text/plain");
                         Intent shareIntent = Intent.createChooser(sendIntent, null);
-                        startActivity(shareIntent);
-                        return false;
-                    case R.id.fab_about:
-                        mRecyclerView.setVisibility(View.INVISIBLE);
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.container, mFragment).commit();
-                        speedDialView.setVisibility(View.INVISIBLE);
-                        return false;
-                    default:
-                        return false;
+                        if (shareIntent.resolveActivity(getPackageManager()) != null) {
+                            startActivity(shareIntent);
+                        }
+                        break;
+                    case R.id.action_rate:
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(
+                                getString(R.string.google_play_url)));
+                        intent.setPackage("com.android.vending");
+                        if (intent.resolveActivity(getPackageManager()) != null) {
+                            startActivity(intent);
+                        }
+                        break;
+                    case R.id.action_donate:
+                        if (mRewardedVideoAd.isLoaded()) {
+                            mRewardedVideoAd.show();
+                        }
+                        break;
+                    case R.id.action_about:
+                        Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+                        startActivity(aboutIntent);
+                        break;
                 }
+                return true;
             }
         });
+    }
+
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd(getString(R.string.rewarded_ad_id),
+                new AdRequest.Builder().build());
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.flash_cards:
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
+                Intent flashIntent = new Intent(MainActivity.this, FlashCards.class);
+                startActivity(flashIntent);
+                break;
+            case R.id.tracing:
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
+                Intent traceIntent = new Intent(MainActivity.this, Tracing.class);
+                startActivity(traceIntent);
+                break;
+        }
+
 
     }
 
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+        Toast.makeText(this, R.string.rewarded_add_failed,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+        Toast.makeText(this, R.string.thanks_for_support,
+                Toast.LENGTH_SHORT).show();
+    }
 }

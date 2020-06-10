@@ -21,6 +21,12 @@
     <color name="sports_cat_color">#8b8b7a</color>
     <color name="transports_cat_color">#00bfff</color>
     <color name="objects_cat_color">#c3e949</color>
-    <color name="ic_launcher_back_color">#BFFD00</color>
+    <color name="ic_launcher_back_color">#519BE4</color>
     <color name="cancel_button">#EF1233</color>
+    <color name="pink">#FF69B4</color>
+    <color name="blue">#3F51B5</color>
+    <color name="green">#048E0A</color>
+    <color name="brown">#511A08</color>
+    <color name="purple">#9C27B0</color>
+    <color name="red">#F80707</color>
 </resources>

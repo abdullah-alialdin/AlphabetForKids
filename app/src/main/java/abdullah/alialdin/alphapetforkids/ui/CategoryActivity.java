@@ -30,8 +30,10 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -52,6 +54,8 @@ public class CategoryActivity extends AppCompatActivity {
     private ImageView mBackImage;
     private ArrayList<CategoryModel> category = new ArrayList<>();
     private int count = 0;
+    private InterstitialAd mInterstitialAd;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +71,16 @@ public class CategoryActivity extends AppCompatActivity {
         AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                AdRequest adRequest = new AdRequest.Builder().build();
+                mInterstitialAd.loadAd(adRequest);
+            }
+        });
         Intent intent = getIntent();
         category = intent.getParcelableArrayListExtra("Category");
         mFrontImage = findViewById(R.id.front_image);
@@ -83,7 +97,13 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count += 1;
-                if (count > category.size()-1) {count = 0;}
+                if (mInterstitialAd.isLoaded() && count%4 == 0) {
+                    mInterstitialAd.show();
+                }
+                if (count > category.size()-1) {
+                    count = category.size()-1;
+                    playSound(CategoryActivity.this, R.raw.applause);
+                }
                 mFrontImage.setImageResource(category.get(count).getLetterImageSource());
                 mBackImage.setImageResource(category.get(count).getPhotoImageSource());
                 playSound(CategoryActivity.this, category.get(count).getLetterSound());
@@ -93,7 +113,10 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count -= 1;
-                if (count < 0){count = category.size()-1;}
+                if (mInterstitialAd.isLoaded() && count%4 == 0) {
+                    mInterstitialAd.show();
+                }
+                if (count < 0){count = 0;}
                 mFrontImage.setImageResource(category.get(count).getLetterImageSource());
                 mBackImage.setImageResource(category.get(count).getPhotoImageSource());
                 playSound(CategoryActivity.this, category.get(count).getLetterSound());
@@ -139,7 +162,15 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     private void playSound(Context context, int sound){
-        MediaPlayer mediaPlayer = MediaPlayer.create(context, sound);
+        mediaPlayer = MediaPlayer.create(context, sound);
         mediaPlayer.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
     }
 }

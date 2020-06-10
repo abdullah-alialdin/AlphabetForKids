@@ -12,7 +12,7 @@
 <resources>
     <string name="app_name">Alphabet For Kids</string>
     <string name="about_text">
-        Alphabet for kids v1.0 \n\n
+        Alphabet for kids v2.0\n\n
         Copyright © 2020 Abdoriod (Abdullah Alialdin)
         Licensed under the Apache License, Version 2.0 (the "License");\n
         you may not use this file except in compliance with the License.\n
@@ -38,17 +38,16 @@
 
         Follow and Feedback:
     </string>
-    <string name="app_id">ca-app-pub-000000000000000000000000000</string>
-    <string name="interstitial_id">ca-app-pub-000000000000000000000000000</string>
-    <string name="footer_ad_id">ca-app-pub-000000000000000000000000000</string>
-    <string name="email">abdullah.alialdin@gmail.com</string>
+    <string name="app_id" translatable="false">your app id here</string>
+    <string name="interstitial_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="footer_ad_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="email" translatable="false">abdullah.alialdin@gmail.com</string>
     <string name="email_subject">Alphabet for Kids FeedBack</string>
-    <string name="twitter">https://twitter.com/abdoroid</string>
-    <string name="youtube">http://www.youtube.com/c/Abdoroid</string>
-    <string name="linkedin">https://www.linkedin.com/in/abdullah-alialdin/</string>
-    <string name="facebook">https://www.facebook.com/abdoroid.channel</string>
-    <string name="google_play_url">https://play.google.com/store/apps/details?id=abdullah.alialdin.alphapetforkids</string>
-    <string name="share_message">\"برنامج ممتع جدا لتعليم الأطفال الحروف الانجليزية وبعض الكلمات البسيطة \"</string>
+    <string name="twitter" translatable="false">https://twitter.com/abdoroid</string>
+    <string name="youtube" translatable="false">http://www.youtube.com/c/Abdoroid</string>
+    <string name="linkedin" translatable="false">https://www.linkedin.com/in/abdullah-alialdin/</string>
+    <string name="facebook" translatable="false">https://www.facebook.com/abdoroid.channel</string>
+    <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=abdullah.alialdin.alphapetforkids</string>
     <string name="back_arrow_des">back arrow</string>
     <string name="next_arrow_des">next arrow</string>
     <string name="content_image_des">content image</string>
@@ -61,10 +60,28 @@
     <string name="cat_sports">Sports</string>
     <string name="cat_transports">Transports</string>
     <string name="cat_objects">Objects</string>
-    <string name="button_x">x</string>
+    <string name="button_x" translatable="false">x</string>
     <string name="gmail_icon">gmail icon</string>
-    <string name="facebook_icon">facebook icon</string>
     <string name="twitter_icon">twitter icon</string>
     <string name="youtube_icon">youtube icon</string>
     <string name="linkedin_icon">linkedin icon</string>
+    <string name="rewarded_ad_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="rewarded_add_failed">Failed to load ad Please try again</string>
+    <string name="thanks_for_support">Thanks for your Support</string>
+    <string name="flash_cards">Flashcards</string>
+    <string name="flash_cards_hint">Click to flip the card</string>
+    <string name="tracing">Tracing</string>
+    <string name="tracing_hint">Trace the letter with your finger</string>
+    <string name="color_red_description">color red</string>
+    <string name="color_blue_description">color blue</string>
+    <string name="color_green_description">color green</string>
+    <string name="color_purple_description">color purple</string>
+    <string name="color_brown_description">color brown</string>
+    <string name="color_pink_description">color pink</string>
+    <string name="speaker_description">speaker</string>
+    <string name="share_message">A very fun program for teaching children English letters and some simple words</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
+    <string name="support">Support</string>
+    <string name="about">About</string>
 </resources>

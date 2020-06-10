@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 Abdoriod (Abdullah Alialdin)
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    tools:context=".ui.AboutActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_dp"
+        android:layout_weight="5">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+        <TextView
+            style="@style/license_text_view_style"
+            android:text="@string/about_text" />
+        </ScrollView>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/gmail"
+            style="@style/follow_image_button"
+            android:src="@drawable/gmail"
+            android:contentDescription="@string/gmail_icon" />
+        <ImageButton
+            android:id="@+id/twitter"
+            style="@style/follow_image_button"
+            android:src="@drawable/twitter"
+            android:contentDescription="@string/twitter_icon" />
+        <ImageButton
+            android:id="@+id/youtube"
+            style="@style/follow_image_button"
+            android:src="@drawable/youtube"
+            android:contentDescription="@string/youtube_icon" />
+        <ImageButton
+            android:id="@+id/linkedin"
+            style="@style/follow_image_button"
+            android:src="@drawable/linkedin"
+            android:contentDescription="@string/linkedin_icon" />
+
+    </LinearLayout>
+</LinearLayout>
+
